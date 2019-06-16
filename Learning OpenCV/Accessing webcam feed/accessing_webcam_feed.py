@@ -7,7 +7,11 @@ while True:
     b, img = cam.read()
     if b:
         cv2.imshow("Window", img)
-        cv2.waitKey(1)
     else:
         print("The webcam is not functional")
         break
+    key = cv2.waitKey(1)&0xFF
+    if key==ord('q'):
+        break
+cv2.destroyAllWindows()
+cam.release()
